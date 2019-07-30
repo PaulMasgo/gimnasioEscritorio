@@ -84,5 +84,10 @@ namespace CapaPresentacion
 
 
         }
+
+        private void FrmEmpleadosRegistro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

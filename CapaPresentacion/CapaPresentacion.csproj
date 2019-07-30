@@ -58,6 +58,18 @@
     <Compile Include="frmAsistencia.Designer.cs">
       <DependentUpon>frmAsistencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientesActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientesActualizar.Designer.cs">
+      <DependentUpon>frmClientesActualizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientesRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAsistencia.resx">
       <DependentUpon>frmAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientesActualizar.resx">
+      <DependentUpon>frmClientesActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientesRegistro.resx">
+      <DependentUpon>frmClientesRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>

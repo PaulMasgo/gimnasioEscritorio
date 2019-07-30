@@ -312,6 +312,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEmpleadosRegistro";
             this.Text = "frmEmpleadosRegistro";
+            this.Load += new System.EventHandler(this.FrmEmpleadosRegistro_Load);
             this.Titulo.ResumeLayout(false);
             this.Titulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();

@@ -16,5 +16,16 @@ namespace CapaClases
         public DateTime nacimiento { get; set; }
 
 
+        public Cliente(int Id,string Nombre,string Apellido,string Dni,string Telefono,string TelEmer,DateTime Nacimiento)
+        {
+            this.id = Id;
+            this.nombre = Nombre;
+            this.apellido = Apellido;
+            this.dni = Dni;
+            this.telefono = Telefono;
+            this.telefonoEmergencia = TelEmer;
+            this.nacimiento = Nacimiento;
+        }
+
     }
 }
