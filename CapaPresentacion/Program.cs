@@ -15,7 +15,11 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmClientes());
+            Application.Run(new frmLogin());
+            if (mdlVariableAplicacion.EmpleadoActivo != null)
+            {
+                Application.Run(new frmPrincipal());
+            }
         }
     }
 }

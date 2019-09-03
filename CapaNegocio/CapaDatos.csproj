@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DCliente.cs" />
+    <Compile Include="DMatricula.cs" />
+    <Compile Include="DPago.cs" />
+    <Compile Include="DPlanes.cs" />
+    <Compile Include="DPromociones.cs" />
     <Compile Include="NEmpleado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

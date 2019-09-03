@@ -18,6 +18,9 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        public Boolean seleccionar = false;
+
+        public Cliente seleccionado { get; set; }
 
         List<Cliente> listaclientes = new List<Cliente>();
         Config config = new Config();
@@ -51,6 +54,10 @@ namespace CapaPresentacion
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
+            if (seleccionar == false)
+            {
+                btnSeleccionar.Visible = false;
+            }
             Listar();
         }
 
@@ -83,6 +90,12 @@ namespace CapaPresentacion
                 Listar();
             }
 
+        }
+
+        private void BtnSeleccionar_Click(object sender, EventArgs e)
+        {
+            seleccionado = listaclientes[dgvClientes.SelectedRows[0].Index];
+            Close();
         }
     }
 }

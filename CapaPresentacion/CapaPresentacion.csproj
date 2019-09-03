@@ -70,6 +70,12 @@
     <Compile Include="frmClientesActualizar.Designer.cs">
       <DependentUpon>frmClientesActualizar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmClienteSeleccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClienteSeleccionar.Designer.cs">
+      <DependentUpon>frmClienteSeleccionar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClientesRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,37 @@
     <Compile Include="frmEmpleadosRegistro.Designer.cs">
       <DependentUpon>frmEmpleadosRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatriculaDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatriculaDetalles.Designer.cs">
+      <DependentUpon>frmMatriculaDetalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatriculaListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatriculaListar.Designer.cs">
+      <DependentUpon>frmMatriculaListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatriculaRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatriculaRegistro.Designer.cs">
+      <DependentUpon>frmMatriculaRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPagoRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPagoRegistro.Designer.cs">
+      <DependentUpon>frmPagoRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mdlVariableAplicacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -108,6 +145,9 @@
     <EmbeddedResource Include="frmClientesActualizar.resx">
       <DependentUpon>frmClientesActualizar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmClienteSeleccionar.resx">
+      <DependentUpon>frmClienteSeleccionar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientesRegistro.resx">
       <DependentUpon>frmClientesRegistro.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +160,21 @@
     <EmbeddedResource Include="frmEmpleadosRegistro.resx">
       <DependentUpon>frmEmpleadosRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatriculaDetalles.resx">
+      <DependentUpon>frmMatriculaDetalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatriculaListar.resx">
+      <DependentUpon>frmMatriculaListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatriculaRegistro.resx">
+      <DependentUpon>frmMatriculaRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagoRegistro.resx">
+      <DependentUpon>frmPagoRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,6 +183,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -149,6 +205,9 @@
       <Project>{e5f63b3b-0ee3-46ab-b8c5-61943da7fe26}</Project>
       <Name>CapaDatos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

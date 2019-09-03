@@ -8,6 +8,7 @@ using CapaClases;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -15,7 +16,7 @@ namespace CapaNegocio
     {
         SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConexion"].ConnectionString);
 
-        public void NuevoEmpleado(Empleado empleado)
+        public bool NuevoEmpleado(Empleado empleado)
         {
             SqlCommand cmd = new SqlCommand("usp_empleado_insertar", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -29,8 +30,20 @@ namespace CapaNegocio
             cmd.Parameters.AddWithValue("@parContraseña", empleado.contrasenia);
 
             conexion.Open();
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2601)
+                {
+                    return false;
+                }
+            }
+            
             conexion.Close();
+            return true;
 
         }
 
@@ -117,7 +130,47 @@ namespace CapaNegocio
 
         }
 
-      
+
+        public Empleado login(string dni,string contraseña)
+        {
+            Empleado empleado = null;
+
+            SqlCommand cmd = new SqlCommand("usp_empleado_login", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@parDni", dni);
+            cmd.Parameters.AddWithValue("@parContrasenia", contraseña );
+
+            conexion.Open();
+
+            SqlDataReader data;
+            data = cmd.ExecuteReader();
+
+            while (data.Read() == true)
+            {
+                empleado = new Empleado(Convert.ToInt32(data["IdEmpleado"]),
+                                             Convert.ToString(data["Nombres"]),
+                                             Convert.ToString(data["Apellidos"]),
+                                             Convert.ToString(data["DNI"]),
+                                             Convert.ToString(data["Direccion"]),
+                                             Convert.ToString(data["Celular"]),
+                                             null,
+                                             Convert.ToString(data["Correo"]),
+                                             Convert.ToString(data["Tipo"])
+                                             );
+                
+            }
+            conexion.Close();
+            return empleado;
+        }
+
+
+
+
+
+
+
+
 
     }
 }

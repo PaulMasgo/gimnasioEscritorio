@@ -37,6 +37,16 @@ namespace CapaPresentacion
             }
         }
 
+
+        public void colores()
+        {
+            btnAsistencia.BackColor = Color.Green;
+            btnMatricula.BackColor = Color.Green;
+            button1.BackColor = Color.Green;
+            btnControl.BackColor = Color.Green;
+            btnEmpleados.BackColor = Color.Green;
+        }
+
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
@@ -73,17 +83,42 @@ namespace CapaPresentacion
 
         private void BtnAsistencia_Click(object sender, EventArgs e)
         {
+            colores();
             abrirFormularioenPaenl(new frmAsistencia());
+            btnAsistencia.BackColor = Color.Black;
         }
 
         private void BtnEmpleados_Click(object sender, EventArgs e)
         {
+            colores();
             abrirFormularioenPaenl(new frmEmpleados());
+            btnEmpleados.BackColor = Color.Black;
         }
 
         private void PanelContenedor_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void BtnControl_Click(object sender, EventArgs e)
+        {
+            colores();
+            abrirFormularioenPaenl(new frmClientes());
+            btnControl.BackColor = Color.Black;
+        }
+
+        private void BtnMatricula_Click(object sender, EventArgs e)
+        {
+            colores();
+            abrirFormularioenPaenl(new frmMatriculaRegistro());
+            btnMatricula.BackColor = Color.Black;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            colores();
+            abrirFormularioenPaenl(new frmMatriculaListar());
+            button1.BackColor = Color.Black;
         }
     }
 }

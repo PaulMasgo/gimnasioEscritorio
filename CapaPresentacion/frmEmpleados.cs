@@ -20,7 +20,7 @@ namespace CapaPresentacion
 
         List<Empleado> EmpleadosListados = new List<Empleado>();
         Config config = new Config();
-
+ 
         void Listar()
         {
             NEmpleado empleado = new NEmpleado();

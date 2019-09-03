@@ -217,7 +217,7 @@
             this.txtContraseña1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña1.Location = new System.Drawing.Point(308, 160);
             this.txtContraseña1.Name = "txtContraseña1";
-            this.txtContraseña1.PasswordChar = '*';
+            this.txtContraseña1.PasswordChar = '•';
             this.txtContraseña1.Size = new System.Drawing.Size(262, 24);
             this.txtContraseña1.TabIndex = 6;
             // 
@@ -236,7 +236,7 @@
             this.txtContraseña2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña2.Location = new System.Drawing.Point(308, 209);
             this.txtContraseña2.Name = "txtContraseña2";
-            this.txtContraseña2.PasswordChar = '*';
+            this.txtContraseña2.PasswordChar = '•';
             this.txtContraseña2.Size = new System.Drawing.Size(262, 23);
             this.txtContraseña2.TabIndex = 7;
             // 

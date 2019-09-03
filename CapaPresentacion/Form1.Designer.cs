@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuVertical = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMatricula = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnControl = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAsistencia = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -52,9 +52,9 @@
             // menuVertical
             // 
             this.menuVertical.BackColor = System.Drawing.Color.Green;
-            this.menuVertical.Controls.Add(this.button2);
+            this.menuVertical.Controls.Add(this.btnMatricula);
             this.menuVertical.Controls.Add(this.btnEmpleados);
-            this.menuVertical.Controls.Add(this.button3);
+            this.menuVertical.Controls.Add(this.btnControl);
             this.menuVertical.Controls.Add(this.button1);
             this.menuVertical.Controls.Add(this.btnAsistencia);
             this.menuVertical.Controls.Add(this.pictureBox1);
@@ -64,22 +64,23 @@
             this.menuVertical.Size = new System.Drawing.Size(250, 650);
             this.menuVertical.TabIndex = 0;
             // 
-            // button2
+            // btnMatricula
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 193);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 45);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Matricula";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMatricula.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnMatricula.FlatAppearance.BorderSize = 0;
+            this.btnMatricula.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnMatricula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMatricula.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMatricula.ForeColor = System.Drawing.Color.White;
+            this.btnMatricula.Image = ((System.Drawing.Image)(resources.GetObject("btnMatricula.Image")));
+            this.btnMatricula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMatricula.Location = new System.Drawing.Point(0, 193);
+            this.btnMatricula.Name = "btnMatricula";
+            this.btnMatricula.Size = new System.Drawing.Size(250, 45);
+            this.btnMatricula.TabIndex = 0;
+            this.btnMatricula.Text = "Matricula";
+            this.btnMatricula.UseVisualStyleBackColor = true;
+            this.btnMatricula.Click += new System.EventHandler(this.BtnMatricula_Click);
             // 
             // btnEmpleados
             // 
@@ -93,28 +94,29 @@
             this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleados.Location = new System.Drawing.Point(3, 346);
             this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(250, 45);
+            this.btnEmpleados.Size = new System.Drawing.Size(247, 45);
             this.btnEmpleados.TabIndex = 0;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = true;
             this.btnEmpleados.Click += new System.EventHandler(this.BtnEmpleados_Click);
             // 
-            // button3
+            // btnControl
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 295);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(250, 45);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Control";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnControl.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnControl.FlatAppearance.BorderSize = 0;
+            this.btnControl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControl.ForeColor = System.Drawing.Color.White;
+            this.btnControl.Image = ((System.Drawing.Image)(resources.GetObject("btnControl.Image")));
+            this.btnControl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnControl.Location = new System.Drawing.Point(3, 295);
+            this.btnControl.Name = "btnControl";
+            this.btnControl.Size = new System.Drawing.Size(244, 45);
+            this.btnControl.TabIndex = 0;
+            this.btnControl.Text = "Control";
+            this.btnControl.UseVisualStyleBackColor = true;
+            this.btnControl.Click += new System.EventHandler(this.BtnControl_Click);
             // 
             // button1
             // 
@@ -132,6 +134,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Pago";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnAsistencia
             // 
@@ -249,8 +252,8 @@
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Button btnAsistencia;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMatricula;
+        private System.Windows.Forms.Button btnControl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEmpleados;
     }

@@ -33,8 +33,31 @@ namespace CapaPresentacion
 
         }
 
+        
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
+
+            //================= Validar campos vacios =====================
+
+            bool campos = true;
+
+            if (txtApellidos.Text == string.Empty ||
+                txtNombres.Text == string.Empty ||
+                txtDireccion.Text == string.Empty ||
+                txtCorreo.Text == string.Empty ||
+                txtDNI.Text == string.Empty ||
+                txtContraseña1.Text == string.Empty ||
+                txtContraseña2.Text == string.Empty ||
+                txtCelular.Text == string.Empty )
+            {
+                campos = false;
+            }
+            else
+            {
+                campos = true;
+            }
+
+
 
             //====================== Encriptando Contraseña ==========================
 
@@ -62,6 +85,9 @@ namespace CapaPresentacion
             if (txtContraseña1.Text != txtContraseña2.Text)
             {
                 MessageBox.Show("Las contraseñas no coinciden", "No se pudo completa la operación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if (campos == false)
+            {
+                MessageBox.Show("Todos los campos son obligatorios", "No se pudo completa la operación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -69,9 +95,17 @@ namespace CapaPresentacion
                 if(pregunta == DialogResult.Yes)
                 {
                     Empleado empleado = new Empleado(0,txtNombres.Text,txtApellidos.Text,txtDNI.Text,txtDireccion.Text,txtCelular.Text,contraseña,txtCorreo.Text,null);
+                    
                     NEmpleado Negocio = new NEmpleado();
-                    Negocio.NuevoEmpleado(empleado);
-                    MessageBox.Show("Empleado Registrado", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bool rpsta = Negocio.NuevoEmpleado(empleado);
+                    if (rpsta == true)
+                    {
+                        MessageBox.Show("Empleado Registrado", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asegurese que el Dni ingresado no este ya regitrado","Error en el registro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
 
                     //============ Limpiar cuadros de texto ==================
                         config.limpiarTextbox(this.Controls);

@@ -15,8 +15,9 @@ namespace CapaNegocio
     {
         SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["miconexion"].ConnectionString);
 
-        public int NuevoCliente(Cliente cliente)
+        public bool NuevoCliente(Cliente cliente)
         {
+        
             SqlCommand cmd = new SqlCommand("usp_cliente_registrar", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -28,10 +29,21 @@ namespace CapaNegocio
             cmd.Parameters.AddWithValue("@parFecha", cliente.nacimiento);
 
             conexion.Open();
-            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            try
+            {
+                 Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2601)
+                {
+                    return false;
+                } 
+            }
+            
             conexion.Close();
+            return true;
 
-            return id;
 
         }
 
@@ -46,7 +58,7 @@ namespace CapaNegocio
 
             SqlDataReader data = cmd.ExecuteReader();
 
-            while(data.Read()==true)
+            while (data.Read() == true)
             {
                 Cliente fila = new Cliente(Convert.ToInt32(data["IdCliente"]),
                                            Convert.ToString(data["Nombre"]),
@@ -114,7 +126,36 @@ namespace CapaNegocio
 
         }
 
-    }
+        public Cliente listarClienteDni(string dni)
+        {
+            Cliente Cliente = null;
 
+            SqlCommand cmd = new SqlCommand("usp_cliente_buscar_dni", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conexion.Open();
+            cmd.Parameters.AddWithValue("@param", dni);
+
+            SqlDataReader data = cmd.ExecuteReader();
+
+            while (data.Read() == true)
+            {
+                Cliente = new Cliente(Convert.ToInt32(data["IdCliente"]),
+                                            Convert.ToString(data["Nombre"]),
+                                            Convert.ToString(data["Apellido"]),
+                                            Convert.ToString(data["DNI"]),
+                                            Convert.ToString(data["Telefono"]),
+                                            Convert.ToString(data["TelefonoEmergencia"]),
+                                            Convert.ToDateTime(data["FechaNacimiento"])
+                                            );
+                           }
+
+            conexion.Close();
+            return Cliente;
+
+        }
+
+
+    }
     
 }
