@@ -117,4 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnActualizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAmJJREFUWEe9lz9IHEEUhw+RQ0REUkgqCalFUliJiFUIKYJlCusgFhZilU6CHMcV
+        IYiFWIYUqYKVRRCxspAQQhALkRQpQhCREIKIyPn93r6L6N3eztzu+cEP9s2f92Znd2belEKp1+tl9By9
+        RbvoJzpDv9EPtIdW0Qzq9275wdkwqqJTFMofpMGMuJt46NyLltxZp5yjFdTnbsOgw0OkaS6Kr+ixu2+P
+        GqJj9SoY/StPPExraKDv3Y3gDTSI1jNBRQ/aVqsu8w01/xMULlj1/VD1sAkUPEBa00XxF31JHltygW4+
+        BcYbKy6OF0h+Z1HaMt5oBNd6/2VFxbBujh3s10lxE//QoBpMm1kMR2jAY8t3HzpURQov1aio6b9Ckx7b
+        wK5ZTTobarSVPOem5nEN7Al0aTXp7Kvh9+Q5Fwfo/9rmuR/pc2RxosZ5dz695bjHNrDfWU02Z2ocMtJN
+        NII+mXWbZY9rYOun1v8Qgg0g6xNoe+5151qyH1XoaLOxOsHzAFJyEop9gqyfcM39G9gaxAeks37Uiw3s
+        dRSD/YRZy1DTOe8xDGwdXFNuGtjPvG0Mtgynkue2yPErj9UEdUNIOWIsthGFbsWpg6D8vbWII9mK3cGy
+        FWWjQcxZJwdbWXAnJIeRwIg5jjWIRe+n3FFZTiy3j2NBQWxCso86PUUrHvYGCu8rJVOG3DpNp0JJacjO
+        2CmasfbpOQ0eoW4MQsHHPEx7aKiZ2FGvggi/mDSgg/6JRZT3aqadtuxu46GzZqOCTlAo+S+nd8GZrudP
+        kdKsz0h5hG7Mkk5AfTJd3ZURB17PS6VrYWM4D9zmk8AAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="Apellidos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Nombres.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DNI.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Asistencia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="btnOpciones.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
