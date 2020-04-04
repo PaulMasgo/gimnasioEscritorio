@@ -39,5 +39,31 @@ namespace CapaNegocio
             return listaPlanes;
 
         }
+
+
+        public bool NuevaPlan(Planes plan)
+        {
+            SqlCommand cmd = new SqlCommand("usp_planes_registrar", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@parMeses", plan.cantidadMeses);
+            cmd.Parameters.AddWithValue("@parPrecio", plan.precio);
+            cmd.Parameters.AddWithValue("@parpagos", plan.pagosMaximos);
+
+            conexion.Open();
+            try
+            {
+                Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                return false;
+                
+            }
+            
+            conexion.Close();
+            return true;
+
+        }
     }
 }

@@ -100,6 +100,18 @@
     <Compile Include="frmEmpleadosRegistro.Designer.cs">
       <DependentUpon>frmEmpleadosRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEstadoListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadoListar.Designer.cs">
+      <DependentUpon>frmEstadoListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstadoRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadoRegistro.Designer.cs">
+      <DependentUpon>frmEstadoRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     </Compile>
     <Compile Include="frmPagoRegistro.Designer.cs">
       <DependentUpon>frmPagoRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlanesPromociones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlanesPromociones.Designer.cs">
+      <DependentUpon>frmPlanesPromociones.cs</DependentUpon>
     </Compile>
     <Compile Include="mdlVariableAplicacion.cs" />
     <Compile Include="Program.cs" />
@@ -160,6 +178,12 @@
     <EmbeddedResource Include="frmEmpleadosRegistro.resx">
       <DependentUpon>frmEmpleadosRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadoListar.resx">
+      <DependentUpon>frmEstadoListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadoRegistro.resx">
+      <DependentUpon>frmEstadoRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPagoRegistro.resx">
       <DependentUpon>frmPagoRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlanesPromociones.resx">
+      <DependentUpon>frmPlanesPromociones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,6 +235,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoempresa.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

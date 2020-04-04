@@ -24,7 +24,7 @@ namespace CapaNegocio
             cmd.Parameters.AddWithValue("@parMatricula", pago.matricula.idMatricula);
 
             conexion.Open();
-            Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.ExecuteScalar();
             conexion.Close();   
 
         }

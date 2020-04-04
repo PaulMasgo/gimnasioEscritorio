@@ -71,6 +71,7 @@ namespace CapaPresentacion
                 this.panelContenedor.Controls.RemoveAt(0);
             }
 
+
             Form formularioHijo = Hijo as Form;
             formularioHijo.TopLevel = false;
             this.panelContenedor.Controls.Add(formularioHijo);
@@ -84,7 +85,7 @@ namespace CapaPresentacion
         private void BtnAsistencia_Click(object sender, EventArgs e)
         {
             colores();
-            abrirFormularioenPaenl(new frmAsistencia());
+            abrirFormularioenPaenl(new frmMatriculaListar());
             btnAsistencia.BackColor = Color.Black;
         }
 
@@ -103,7 +104,7 @@ namespace CapaPresentacion
         private void BtnControl_Click(object sender, EventArgs e)
         {
             colores();
-            abrirFormularioenPaenl(new frmClientes());
+            abrirFormularioenPaenl(new frmEstadoRegistro());
             btnControl.BackColor = Color.Black;
         }
 
@@ -117,8 +118,15 @@ namespace CapaPresentacion
         private void Button1_Click(object sender, EventArgs e)
         {
             colores();
-            abrirFormularioenPaenl(new frmMatriculaListar());
+            abrirFormularioenPaenl(new frmClientes());
             button1.BackColor = Color.Black;
+        }
+
+        private void BtnPlanes_Click(object sender, EventArgs e)
+        {
+            colores();
+            abrirFormularioenPaenl(new frmPlanesPromociones());
+            btnPlanes.BackColor = Color.Black;
         }
     }
 }

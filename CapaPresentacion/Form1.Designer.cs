@@ -41,6 +41,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnSlide = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnPlanes = new System.Windows.Forms.Button();
             this.menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.barraTitulo.SuspendLayout();
@@ -52,6 +53,7 @@
             // menuVertical
             // 
             this.menuVertical.BackColor = System.Drawing.Color.Green;
+            this.menuVertical.Controls.Add(this.btnPlanes);
             this.menuVertical.Controls.Add(this.btnMatricula);
             this.menuVertical.Controls.Add(this.btnEmpleados);
             this.menuVertical.Controls.Add(this.btnControl);
@@ -92,9 +94,9 @@
             this.btnEmpleados.ForeColor = System.Drawing.Color.White;
             this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
             this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleados.Location = new System.Drawing.Point(3, 346);
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 346);
             this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(247, 45);
+            this.btnEmpleados.Size = new System.Drawing.Size(250, 45);
             this.btnEmpleados.TabIndex = 0;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = true;
@@ -110,9 +112,9 @@
             this.btnControl.ForeColor = System.Drawing.Color.White;
             this.btnControl.Image = ((System.Drawing.Image)(resources.GetObject("btnControl.Image")));
             this.btnControl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnControl.Location = new System.Drawing.Point(3, 295);
+            this.btnControl.Location = new System.Drawing.Point(0, 295);
             this.btnControl.Name = "btnControl";
-            this.btnControl.Size = new System.Drawing.Size(244, 45);
+            this.btnControl.Size = new System.Drawing.Size(251, 45);
             this.btnControl.TabIndex = 0;
             this.btnControl.Text = "Control";
             this.btnControl.UseVisualStyleBackColor = true;
@@ -132,7 +134,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(250, 45);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Pago";
+            this.button1.Text = "Clientes";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -150,7 +152,7 @@
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(250, 45);
             this.btnAsistencia.TabIndex = 0;
-            this.btnAsistencia.Text = "Asistencia";
+            this.btnAsistencia.Text = "Control matricula";
             this.btnAsistencia.UseVisualStyleBackColor = true;
             this.btnAsistencia.Click += new System.EventHandler(this.BtnAsistencia_Click);
             // 
@@ -221,6 +223,24 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
+            // btnPlanes
+            // 
+            this.btnPlanes.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnPlanes.FlatAppearance.BorderSize = 0;
+            this.btnPlanes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnPlanes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlanes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlanes.ForeColor = System.Drawing.Color.White;
+            this.btnPlanes.Image = ((System.Drawing.Image)(resources.GetObject("btnPlanes.Image")));
+            this.btnPlanes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlanes.Location = new System.Drawing.Point(1, 414);
+            this.btnPlanes.Name = "btnPlanes";
+            this.btnPlanes.Size = new System.Drawing.Size(250, 45);
+            this.btnPlanes.TabIndex = 1;
+            this.btnPlanes.Text = "Planes/Ofertas";
+            this.btnPlanes.UseVisualStyleBackColor = true;
+            this.btnPlanes.Click += new System.EventHandler(this.BtnPlanes_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +276,7 @@
         private System.Windows.Forms.Button btnControl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnPlanes;
     }
 }
 

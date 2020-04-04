@@ -60,6 +60,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.nudInicial = new System.Windows.Forms.NumericUpDown();
+            this.pdImpresionBoleta = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.Titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudInicial)).BeginInit();
@@ -411,9 +413,24 @@
             this.nudInicial.DecimalPlaces = 2;
             this.nudInicial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudInicial.Location = new System.Drawing.Point(51, 455);
+            this.nudInicial.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.nudInicial.Name = "nudInicial";
             this.nudInicial.Size = new System.Drawing.Size(218, 23);
             this.nudInicial.TabIndex = 77;
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
             // 
             // frmMatriculaRegistro
             // 
@@ -496,5 +513,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.NumericUpDown nudInicial;
+        private System.Drawing.Printing.PrintDocument pdImpresionBoleta;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
     }
 }

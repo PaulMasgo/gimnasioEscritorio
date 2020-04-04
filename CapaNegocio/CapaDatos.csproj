@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DCliente.cs" />
+    <Compile Include="DEstado.cs" />
     <Compile Include="DMatricula.cs" />
     <Compile Include="DPago.cs" />
     <Compile Include="DPlanes.cs" />
