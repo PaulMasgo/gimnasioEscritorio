@@ -27,18 +27,74 @@ namespace CapaPresentacion
 
         List<Promociones> listaPromociones = new List<Promociones>();
         public Promociones promocionElejida { get; set; }
+        private decimal precioTotal { get; set; }
 
-        decimal subtotal = 0;
-        decimal descuento = 0;
-        decimal total = 0;
-
-        public void resultado()
+        /// <summary>
+        /// Calcula el descuento dependiendo del descuento en porcentaje
+        /// </summary>
+        /// <param name="subtotal"></param>
+        /// <param name="descuentoPorcentaje"></param>
+        /// <returns> Retorna el decuento en soles haciendo el calculo previo </returns>
+        public decimal Descuento(decimal subtotal, decimal descuentoPorcentaje )
         {
-            descuento = subtotal * ( descuento/100);
-            total = subtotal - descuento;
-            lbSubtotal.Text = "Subtotal :  S/." + subtotal;
+            return decimal.Round(subtotal * (descuentoPorcentaje / 100), 2);
+        }
+
+        /// <summary>
+        /// Calcula el total de la matricula 
+        /// </summary>
+        /// <param name="subtotal"></param>
+        /// <param name="descuento"></param>
+        /// <returns> Retorna la resta del subtotal y el descuento </returns>
+        public decimal Total(decimal subtotal,decimal descuento)
+        {
+            return decimal.Round(subtotal - descuento, 2);
+        }
+
+
+        public void MostrarResultado()
+        {
+            decimal descuento = Descuento(this.planElejido.precio, this.promocionElejida.descuento);
             lbDescuento.Text = "Descuento :  S/." + descuento;
-            lbTotal.Text = "Total :  S/." + total;
+
+            decimal total = Total(this.planElejido.precio, descuento);
+            lbTotal.Text = "Total     :  S/." + total;
+
+            this.precioTotal = total;
+
+            if (nudPagos.Value > 1)
+            {
+                nudInicial.Value = total / 2;
+            }
+            else
+            {
+                nudInicial.Value = total;
+            }
+
+        }
+
+
+        public void SeleccionarPlan(int indice)
+        {
+            this.planElejido = listaPlanes[indice];
+            txtcostoPlan.Text = planElejido.precio.ToString();
+            lbSubtotal.Text = "Subtotal :  S/." + decimal.Round(this.planElejido.precio, 2);
+        }
+
+        public void SeleccionarPromocion(int indice)
+        {
+            this.promocionElejida = listaPromociones[indice];
+            txtDescuentoPromocion.Text = $"{promocionElejida.descuento}%";
+        }
+
+        public void nuevaMatricula()
+        {
+            this.precioTotal = 0;
+            cmbPlanes.SelectedItem = "1 Meses";
+            cmbPromocion.SelectedItem = "Ninguno";
+            this.cliente = null;
+            txtNombres.Text = "";
+            txtDNI.Text = "";
         }
 
 
@@ -48,25 +104,33 @@ namespace CapaPresentacion
 
             DPlanes planes = new DPlanes();
             DPromociones dpromociones = new DPromociones();
-            
-            foreach (Planes item in planes.listarPlanes())  
+
+            foreach (Planes item in planes.listarPlanes())
             {
                 cmbPlanes.Items.Add(item.cantidadMeses + " Meses");
                 listaPlanes.Add(item);
+                if (item.cantidadMeses == 1)
+                {
+                    planElejido = item;
+                }
             }
 
             foreach (Promociones item in dpromociones.listarPromociones())
             {
                 cmbPromocion.Items.Add(item.nombre);
                 listaPromociones.Add(item);
-
+                if (item.descuento == 0)
+                {
+                    promocionElejida = item;
+                }
             }
 
-            cmbPlanes.SelectedIndex = 0;
-            subtotal = planElejido.precio;
-            resultado();
+
+            cmbPlanes.SelectedItem = "1 Meses";
             cmbPromocion.SelectedItem = "Ninguno";
-            promocionElejida = listaPromociones[cmbPromocion.SelectedIndex];
+
+            
+            MostrarResultado();
          
         }
 
@@ -119,38 +183,21 @@ namespace CapaPresentacion
 
         private void CmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.planElejido = listaPlanes[cmbPlanes.SelectedIndex];
+            SeleccionarPlan(cmbPlanes.SelectedIndex);
+            MostrarResultado();
             DateTime fechaFin = dtpInicio.Value.AddMonths(this.planElejido.cantidadMeses);
             dtpFinal.Value = fechaFin;
-            txtcostoPlan.Text = planElejido.precio.ToString();
-            subtotal = planElejido.precio;
-            nudPagos.Maximum = planElejido.pagosMaximos;
-            resultado();
+
         }
 
         private void CmbPromocion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbPromocion.Text == "Ninguno")
-            {
-                descuento = 0;
-                txtDescuentoPromocion.Text = "0%";
-                resultado();
-            }
-            else
-            {
-                this.promocionElejida = listaPromociones[cmbPromocion.SelectedIndex];
-                txtDescuentoPromocion.Text = promocionElejida.descuento.ToString() + "%";
-                descuento = promocionElejida.descuento;
-                resultado();
-            }
-
-            
+            SeleccionarPromocion(cmbPromocion.SelectedIndex);
+            MostrarResultado();
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
-        {
-            
-             
+        { 
             pdImpresionBoleta = new PrintDocument();
             pdImpresionBoleta.PrintPage += Print;
 
@@ -159,7 +206,7 @@ namespace CapaPresentacion
 
             DMatricula dMatricula = new DMatricula();
             DPago dpago = new DPago();
-            Matricula matricula = new Matricula(0, cliente, mdlVariableAplicacion.EmpleadoActivo, total, DateTime.Now, dtpInicio.Value, dtpFinal.Value, Convert.ToInt32(nudPagos.Value), planElejido, promocionElejida);
+            Matricula matricula = new Matricula(0, cliente, mdlVariableAplicacion.EmpleadoActivo, precioTotal , DateTime.Now, dtpInicio.Value, dtpFinal.Value, Convert.ToInt32(nudPagos.Value), planElejido, promocionElejida);
 
             if (cliente == null)
             {
@@ -167,9 +214,11 @@ namespace CapaPresentacion
             }
             else
             {
-                if (nudInicial.Value <= 0)
+                decimal pagoMin = nudPagos.Value == 1 ? precioTotal : precioTotal / 2; 
+
+                if (nudInicial.Value < pagoMin )
                 {
-                    MessageBox.Show("El pago no debe ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"El pago no debe ser menor a $/.{pagoMin}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -184,6 +233,7 @@ namespace CapaPresentacion
                             dpago.NuevaPago(pago);
                             MessageBox.Show("Matricula Registrada con Exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             printPreviewDialog.ShowDialog();
+                            nuevaMatricula();
                         }
                         else
                         {
@@ -226,10 +276,18 @@ namespace CapaPresentacion
 
             //Pie
             e.Graphics.DrawString(line, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(45, 500));
-            e.Graphics.DrawString($"Descuento S/. - {this.descuento}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 520));
-            e.Graphics.DrawString($"    Total S/. {this.total}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 545));
+
+            decimal descuento = Descuento(this.planElejido.precio, this.promocionElejida.descuento);
+
+            e.Graphics.DrawString($"Descuento S/. -{descuento}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 520));
+            e.Graphics.DrawString($"    Total S/.  {this.precioTotal}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 545));
 
 
+        }
+
+        private void nudPagos_ValueChanged(object sender, EventArgs e)
+        {
+            MostrarResultado();
         }
     }
 }

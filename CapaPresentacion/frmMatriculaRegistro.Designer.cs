@@ -231,7 +231,7 @@
             this.nudPagos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudPagos.Location = new System.Drawing.Point(406, 222);
             this.nudPagos.Maximum = new decimal(new int[] {
-            12,
+            2,
             0,
             0,
             0});
@@ -248,6 +248,7 @@
             0,
             0,
             0});
+            this.nudPagos.ValueChanged += new System.EventHandler(this.nudPagos_ValueChanged);
             // 
             // label7
             // 
