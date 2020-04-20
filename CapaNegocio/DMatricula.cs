@@ -92,5 +92,39 @@ namespace CapaNegocio
             return listamatriculas;
 
         }
+
+
+        public List<Matricula> listarMatriculasActivas (int idCliente)
+        {
+            List<Matricula> listamatriculas = new List<Matricula>();
+
+            SqlCommand cmd = new SqlCommand("usp_matricula_activa", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idCliente", idCliente );
+
+            conexion.Open();
+
+            SqlDataReader data = cmd.ExecuteReader();
+
+            while (data.Read() == true)
+            {
+                Matricula matricula = new Matricula(Convert.ToInt32(data["IdMatricula"]),
+                                                   Convert.ToDecimal(data["Total"]),
+                                                   Convert.ToDateTime(data["Fecha"]),
+                                                   Convert.ToDateTime(data["FechaIni"]),
+                                                   Convert.ToDateTime(data["FechaFin"]),
+                                                   Convert.ToInt32(data["NPagos"])
+                                                   );
+
+                listamatriculas.Add(matricula);
+
+            }
+
+            conexion.Close();
+            return listamatriculas;
+
+        }
+
     }
 }

@@ -104,7 +104,7 @@ namespace CapaPresentacion
         private void BtnControl_Click(object sender, EventArgs e)
         {
             colores();
-            abrirFormularioenPaenl(new frmEstadoRegistro());
+            abrirFormularioenPaenl(new frmAsistencia());
             btnControl.BackColor = Color.Black;
         }
 

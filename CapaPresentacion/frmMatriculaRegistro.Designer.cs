@@ -356,7 +356,7 @@
             // 
             this.lbSubtotal.AutoSize = true;
             this.lbSubtotal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSubtotal.Location = new System.Drawing.Point(801, 418);
+            this.lbSubtotal.Location = new System.Drawing.Point(765, 418);
             this.lbSubtotal.Name = "lbSubtotal";
             this.lbSubtotal.Size = new System.Drawing.Size(80, 23);
             this.lbSubtotal.TabIndex = 73;
@@ -366,7 +366,7 @@
             // 
             this.lbDescuento.AutoSize = true;
             this.lbDescuento.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescuento.Location = new System.Drawing.Point(801, 455);
+            this.lbDescuento.Location = new System.Drawing.Point(765, 455);
             this.lbDescuento.Name = "lbDescuento";
             this.lbDescuento.Size = new System.Drawing.Size(80, 23);
             this.lbDescuento.TabIndex = 73;
@@ -376,7 +376,7 @@
             // 
             this.lbTotal.AutoSize = true;
             this.lbTotal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotal.Location = new System.Drawing.Point(801, 489);
+            this.lbTotal.Location = new System.Drawing.Point(765, 488);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(80, 23);
             this.lbTotal.TabIndex = 73;

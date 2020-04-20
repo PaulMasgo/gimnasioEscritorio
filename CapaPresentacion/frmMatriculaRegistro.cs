@@ -87,6 +87,14 @@ namespace CapaPresentacion
             txtDescuentoPromocion.Text = $"{promocionElejida.descuento}%";
         }
 
+        public bool verficarMatriculasPrevias()
+        {
+            DMatricula dmatricula = new DMatricula();
+            List<Matricula> matriculas = dmatricula.listarMatriculasActivas(this.cliente.id);
+            bool activo = matriculas.Count == 0 ? false : true ;
+            return activo;
+        }
+
         public void nuevaMatricula()
         {
             this.precioTotal = 0;
@@ -197,7 +205,7 @@ namespace CapaPresentacion
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
-        { 
+        {
             pdImpresionBoleta = new PrintDocument();
             pdImpresionBoleta.PrintPage += Print;
 
@@ -205,8 +213,9 @@ namespace CapaPresentacion
 
 
             DMatricula dMatricula = new DMatricula();
-            DPago dpago = new DPago();
-            Matricula matricula = new Matricula(0, cliente, mdlVariableAplicacion.EmpleadoActivo, precioTotal , DateTime.Now, dtpInicio.Value, dtpFinal.Value, Convert.ToInt32(nudPagos.Value), planElejido, promocionElejida);
+            int pagos = nudInicial.Value < precioTotal ? 2 : 1;
+
+            Matricula matricula = new Matricula(0, cliente, mdlVariableAplicacion.EmpleadoActivo, precioTotal, DateTime.Now, dtpInicio.Value, dtpFinal.Value, pagos , planElejido, promocionElejida);
 
             if (cliente == null)
             {
@@ -214,33 +223,41 @@ namespace CapaPresentacion
             }
             else
             {
-                decimal pagoMin = nudPagos.Value == 1 ? precioTotal : precioTotal / 2; 
-
-                if (nudInicial.Value < pagoMin )
+                if (verficarMatriculasPrevias() == true)
                 {
-                    MessageBox.Show($"El pago no debe ser menor a $/.{pagoMin}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El cliente aun cuenta con una matricula activa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    DialogResult pregunta = MessageBox.Show("Desea registrar la matricula?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (pregunta == DialogResult.Yes)
+                    decimal pagoMin = nudPagos.Value == 1 ? precioTotal : precioTotal / 2;
+
+                    if (nudInicial.Value < pagoMin)
                     {
-                        int codigomatricula = dMatricula.NuevaMatricula(matricula);
-                        matricula.idMatricula = codigomatricula;
-                        if (codigomatricula > 0)
+                        MessageBox.Show($"El pago no debe ser menor a $/.{pagoMin}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        DialogResult pregunta = MessageBox.Show("Desea registrar la matricula?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (pregunta == DialogResult.Yes)
                         {
-                            Pago pago = new Pago(0, Convert.ToDecimal(nudInicial.Value) , DateTime.Now, matricula);
-                            dpago.NuevaPago(pago);
-                            MessageBox.Show("Matricula Registrada con Exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            printPreviewDialog.ShowDialog();
-                            nuevaMatricula();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Algo salio mal !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            int codigomatricula = dMatricula.NuevaMatricula(matricula);
+                            matricula.idMatricula = codigomatricula;
+                            if (codigomatricula > 0)
+                            {
+                                Pago pago = new Pago(0, Convert.ToDecimal(nudInicial.Value), DateTime.Now, matricula);
+                                DPago.NuevaPago(pago);
+                                MessageBox.Show("Matricula Registrada con Exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                printPreviewDialog.ShowDialog();
+                                nuevaMatricula();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Algo salio mal !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
+
             }
 
 
@@ -273,6 +290,17 @@ namespace CapaPresentacion
             e.Graphics.DrawString($"Matricula por {this.planElejido.cantidadMeses} meses", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(200, 305));
             e.Graphics.DrawString($"S/.{this.planElejido.precio}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(605, 305));
 
+
+            //--Mensaje
+            if (nudInicial.Value < this.precioTotal)
+            {
+                e.Graphics.DrawString("PAGO POR COMPLETAR", new Font("Arial Narrow", 17, FontStyle.Bold), Brushes.Black, new Point(300, 400));
+                e.Graphics.DrawString($"  Pagado S/.  {nudInicial.Value}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 570));
+            }
+            else
+            {
+                e.Graphics.DrawString("PAGO COMPLETO", new Font("Arial Narrow", 17, FontStyle.Bold), Brushes.Black, new Point(615, 400));
+            }
 
             //Pie
             e.Graphics.DrawString(line, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(45, 500));

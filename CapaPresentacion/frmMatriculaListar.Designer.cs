@@ -42,8 +42,9 @@
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatriculas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +119,12 @@
             this.DNI,
             this.Correo,
             this.Direccion,
-            this.Celular,
-            this.Column1});
+            this.Column1,
+            this.Estado,
+            this.Column2});
             this.dgvMatriculas.EnableHeadersVisualStyles = false;
             this.dgvMatriculas.GridColor = System.Drawing.Color.Black;
-            this.dgvMatriculas.Location = new System.Drawing.Point(59, 132);
+            this.dgvMatriculas.Location = new System.Drawing.Point(23, 130);
             this.dgvMatriculas.Name = "dgvMatriculas";
             this.dgvMatriculas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -139,14 +141,14 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.dgvMatriculas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMatriculas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMatriculas.Size = new System.Drawing.Size(934, 376);
+            this.dgvMatriculas.Size = new System.Drawing.Size(1015, 376);
             this.dgvMatriculas.TabIndex = 15;
             // 
             // Cliente
             // 
             this.Cliente.HeaderText = "Cliente";
             this.Cliente.Name = "Cliente";
-            this.Cliente.Width = 250;
+            this.Cliente.Width = 220;
             // 
             // Fecha
             // 
@@ -170,15 +172,20 @@
             this.Direccion.HeaderText = "Total";
             this.Direccion.Name = "Direccion";
             // 
-            // Celular
-            // 
-            this.Celular.HeaderText = "Pagos";
-            this.Celular.Name = "Celular";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Contrato";
             this.Column1.Name = "Column1";
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado Pago";
+            this.Estado.Name = "Estado";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Estado";
+            this.Column2.Name = "Column2";
             // 
             // frmMatriculaListar
             // 
@@ -212,7 +219,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

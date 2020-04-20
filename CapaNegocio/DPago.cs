@@ -12,9 +12,9 @@ namespace CapaNegocio
    
     public class DPago
     {
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["miconexion"].ConnectionString);
+        static SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["miconexion"].ConnectionString);
 
-        public void NuevaPago(Pago pago)
+        public static void NuevaPago(Pago pago)
         {
             SqlCommand cmd = new SqlCommand("usp_pago_registrar", conexion);
             cmd.CommandType = CommandType.StoredProcedure;

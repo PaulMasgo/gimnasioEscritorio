@@ -80,7 +80,6 @@ namespace CapaPresentacion
         {
             frmPagoRegistro pago = new frmPagoRegistro();
             pago.matricula = this.matricula;
-            pago.total = this.matricula.total;
             pago.restante = this.matricula.total - this.Aportado;
 
             if (pago.ShowDialog()== DialogResult.Cancel)

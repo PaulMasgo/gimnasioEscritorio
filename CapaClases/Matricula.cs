@@ -33,6 +33,17 @@ namespace CapaClases
             this.promocion = Promocion;
         }
 
+        public Matricula(int Id,decimal Total, DateTime Fecha, DateTime FechaInicio, DateTime Fechafin, int NPagos)
+        {
+            this.idMatricula = Id;
+            this.total = Total;
+            this.fecha = Fecha;
+            this.fechaInicio = FechaInicio;
+            this.fechaFin = Fechafin;
+            this.numeroPagos = NPagos;
+        }
+
+
     } 
 
    

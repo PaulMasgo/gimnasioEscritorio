@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAsistencia.cs" />
     <Compile Include="DCliente.cs" />
     <Compile Include="DEstado.cs" />
     <Compile Include="DMatricula.cs" />

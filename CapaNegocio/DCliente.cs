@@ -155,6 +155,36 @@ namespace CapaNegocio
 
         }
 
+        public List<Cliente> listarClienteMatriculaActiva()
+        {
+            List<Cliente> Clientes = new List<Cliente>();
+
+            SqlCommand cmd = new SqlCommand("usp_cliente_listar_asistencia", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conexion.Open();
+
+            SqlDataReader data = cmd.ExecuteReader();
+
+            while (data.Read() == true)
+            {
+                Cliente cliente = new Cliente(Convert.ToInt32(data["IdCliente"]),
+                                            Convert.ToString(data["Nombre"]),
+                                            Convert.ToString(data["Apellido"]),
+                                            Convert.ToString(data["DNI"]),
+                                            Convert.ToString(data["Telefono"]),
+                                            Convert.ToString(data["TelefonoEmergencia"]),
+                                            Convert.ToDateTime(data["FechaNacimiento"])
+                                            );
+
+                Clientes.Add(cliente);
+
+            }
+
+            conexion.Close();
+            return Clientes;
+        }
+
 
     }
     
