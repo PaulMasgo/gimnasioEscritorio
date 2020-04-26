@@ -45,6 +45,7 @@ namespace CapaPresentacion
             button1.BackColor = Color.Green;
             btnControl.BackColor = Color.Green;
             btnEmpleados.BackColor = Color.Green;
+            btnPlanes.BackColor = Color.Green;
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -98,7 +99,14 @@ namespace CapaPresentacion
 
         private void PanelContenedor_Paint(object sender, PaintEventArgs e)
         {
-
+            if(mdlVariableAplicacion.EmpleadoActivo.tipo == "Empleado")
+            {
+                btnEmpleados.Visible = false;
+            }
+            else
+            {
+                btnEmpleados.Visible = true;
+            }
         }
 
         private void BtnControl_Click(object sender, EventArgs e)
@@ -127,6 +135,16 @@ namespace CapaPresentacion
             colores();
             abrirFormularioenPaenl(new frmPlanesPromociones());
             btnPlanes.BackColor = Color.Black;
+        }
+
+        private void barraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuVertical_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

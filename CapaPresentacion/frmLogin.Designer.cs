@@ -98,7 +98,7 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(253, 23);
             this.txtDni.TabIndex = 1;
-            this.txtDni.Text = "70938488";
+            this.txtDni.Text = "12345678";
             // 
             // txtcontraseña
             // 
@@ -108,7 +108,7 @@
             this.txtcontraseña.PasswordChar = '•';
             this.txtcontraseña.Size = new System.Drawing.Size(253, 23);
             this.txtcontraseña.TabIndex = 2;
-            this.txtcontraseña.Text = "123456";
+            this.txtcontraseña.Text = "123456789";
             // 
             // btnIngresar
             // 
