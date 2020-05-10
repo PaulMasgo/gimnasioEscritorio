@@ -91,7 +91,9 @@ namespace CapaPresentacion
         {
             DMatricula dmatricula = new DMatricula();
             List<Matricula> matriculas = dmatricula.listarMatriculasActivas(this.cliente.id);
+            
             bool activo = matriculas.Count == 0 ? false : true ;
+
             return activo;
         }
 
@@ -272,6 +274,7 @@ namespace CapaPresentacion
             e.Graphics.DrawImage(imagenlogo, 30, 30, imagenlogo.Width, imagenlogo.Height);
 
             //Datos del cliente
+
             e.Graphics.DrawString($"Cliente: {this.cliente.nombre} {this.cliente.apellido} ", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(45 ,180));
             e.Graphics.DrawString($"Fecha: {DateTime.Now.Date.ToString("dd/MM/yyyy")} ", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(45, 210));
             e.Graphics.DrawString($"DNI: {this.cliente.dni} ", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(450, 180));
@@ -310,12 +313,16 @@ namespace CapaPresentacion
             e.Graphics.DrawString($"Descuento S/. -{descuento}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 520));
             e.Graphics.DrawString($"    Total S/.  {this.precioTotal}", new Font("Arial Narrow", 12, FontStyle.Regular), Brushes.Black, new Point(615, 545));
 
-
         }
 
         private void nudPagos_ValueChanged(object sender, EventArgs e)
         {
             MostrarResultado();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -69,7 +69,8 @@ namespace CapaNegocio
                                              Convert.ToString(lector["Celular"]),
                                              null,
                                              Convert.ToString(lector["Correo"]),
-                                             Convert.ToString(lector["Tipo"])
+                                             Convert.ToString(lector["Tipo"]),
+                                             Convert.ToString(lector["Estado"])
                                              );
                 listaEmpleados.Add(fila);
             }
@@ -91,6 +92,7 @@ namespace CapaNegocio
             cmd.Parameters.AddWithValue("@parDireccion", empleado.direccion);
             cmd.Parameters.AddWithValue("@parCelular", empleado.celular);
             cmd.Parameters.AddWithValue("@parTipo", empleado.tipo);
+            cmd.Parameters.AddWithValue("@parEstado", empleado.estado);
 
             conexion.Open();
             cmd.ExecuteNonQuery();
@@ -121,7 +123,8 @@ namespace CapaNegocio
                                              Convert.ToString(data["Celular"]),
                                              null,
                                              Convert.ToString(data["Correo"]),
-                                             Convert.ToString(data["Tipo"])
+                                             Convert.ToString(data["Tipo"]),
+                                             Convert.ToString(data["Estado"])
                                              );
                 listaEmpleados.Add(fila);
             }
@@ -156,7 +159,8 @@ namespace CapaNegocio
                                              Convert.ToString(data["Celular"]),
                                              null,
                                              Convert.ToString(data["Correo"]),
-                                             Convert.ToString(data["Tipo"])
+                                             Convert.ToString(data["Tipo"]),
+                                             Convert.ToString(data["Estado"])
                                              );
                 
             }

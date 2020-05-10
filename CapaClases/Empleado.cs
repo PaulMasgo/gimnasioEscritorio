@@ -30,5 +30,19 @@ namespace CapaClases
             this.correo = Correo;
             this.tipo = Tipo;
         }
+
+        public Empleado(int ID, string Nombre, string Apellido, string Dni, string Direccion, string Celular, string Contrasenia, string Correo, string Tipo,string Estado)
+        {
+            this.id = ID;
+            this.nombres = Nombre;
+            this.apellidos = Apellido;
+            this.dni = Dni;
+            this.direccion = Direccion;
+            this.celular = Celular;
+            this.contrasenia = Contrasenia;
+            this.correo = Correo;
+            this.tipo = Tipo;
+            this.estado = Estado;
+        }
     }
 }

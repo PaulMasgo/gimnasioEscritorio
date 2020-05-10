@@ -47,7 +47,7 @@ namespace CapaPresentacion
             }
             else
             {
-                if (edad <= 15)
+                if (edad <= 16)
                 {
                     MessageBox.Show("Solo se permiten participnates de 16 a más", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
