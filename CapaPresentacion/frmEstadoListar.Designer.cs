@@ -1,4 +1,7 @@
-﻿namespace CapaPresentacion
+﻿using System;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
 {
     partial class frmEstadoListar
     {
@@ -32,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEstados = new System.Windows.Forms.DataGridView();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +44,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,16 +95,7 @@
             this.dgvEstados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEstados.Size = new System.Drawing.Size(1044, 221);
             this.dgvEstados.TabIndex = 1;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(477, 20);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(142, 28);
-            this.lbTitulo.TabIndex = 15;
-            this.lbTitulo.Text = "Empleados";
+            this.dgvEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstados_CellContentClick);
             // 
             // Apellidos
             // 
@@ -158,6 +152,16 @@
             this.Column3.Name = "Column3";
             this.Column3.Width = 500;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(477, 20);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(142, 28);
+            this.lbTitulo.TabIndex = 15;
+            this.lbTitulo.Text = "Empleados";
+            // 
             // frmEstadoListar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +178,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dgvEstados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

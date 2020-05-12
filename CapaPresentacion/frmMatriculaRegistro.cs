@@ -317,5 +317,10 @@ namespace CapaPresentacion
         {
             MostrarResultado();
         }
+
+        private void dtpInicio_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

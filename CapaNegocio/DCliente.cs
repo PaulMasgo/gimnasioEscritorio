@@ -107,6 +107,34 @@ namespace CapaNegocio
 
         }
 
+        public List<Cliente> listarReporteasistencia(DateTime fechainicio,DateTime fechafin)
+        {
+            List<Cliente> listaClientes = new List<Cliente>();
+
+            SqlCommand cmd = new SqlCommand("sp_ReporteFechas", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conexion.Open();
+            cmd.Parameters.AddWithValue("@paramFecInicio", fechainicio); 
+            cmd.Parameters.AddWithValue("@paramFecFin", fechafin);
+
+            SqlDataReader data = cmd.ExecuteReader();
+
+            while (data.Read() == true)
+            {
+                Cliente fila = new Cliente(Convert.ToDateTime(data["Fecha"]),
+                                           Convert.ToString(data["Nombre"]),
+                                           Convert.ToString(data["Apellido"]),
+                                           Convert.ToString(data["DNI"]));
+                                                                          
+                listaClientes.Add(fila);
+            }
+
+            conexion.Close();
+            return listaClientes;
+
+        }
+
         public void ActualizarCliente(Cliente cliente)
         {
             SqlCommand cmd = new SqlCommand("usp_cliente_actualizar", conexion);

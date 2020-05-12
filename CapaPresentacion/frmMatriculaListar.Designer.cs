@@ -1,4 +1,7 @@
-﻿namespace CapaPresentacion
+﻿using System;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
 {
     partial class frmMatriculaListar
     {
@@ -69,6 +72,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(42, 26);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lbTermino
             // 
@@ -143,6 +147,7 @@
             this.dgvMatriculas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMatriculas.Size = new System.Drawing.Size(1015, 376);
             this.dgvMatriculas.TabIndex = 15;
+            this.dgvMatriculas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatriculas_CellContentClick);
             // 
             // Cliente
             // 
@@ -205,6 +210,16 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void dgvMatriculas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

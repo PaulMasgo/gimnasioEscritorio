@@ -146,5 +146,19 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnReporteAsistencia_Click(object sender, EventArgs e)
+        {
+            colores();
+            abrirFormularioenPaenl(new FrmReporteAsistencia());
+            btnPlanes.BackColor = Color.Black;
+        }
+
+        private void btnAvance_Click(object sender, EventArgs e)
+        {
+            colores();
+            abrirFormularioenPaenl(new frmEstadoRegistro());
+            btnAvance.BackColor = Color.Black;
+        }
     }
 }

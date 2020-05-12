@@ -75,7 +75,7 @@ namespace CapaPresentacion
                 {
                     DEstado destado = new DEstado();
                     Estado status = new Estado(0, nudTalla.Value, nudPeso.Value, txtObservaciones.Text, nudPecho.Value, nudBiceps.Value, nudCintura.Value, nudTriceps.Value, nudPantorrila.Value, cliente, DateTime.Now);
-                    DialogResult pregunta = MessageBox.Show("Desea REgistrar el avance del cliente", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult pregunta = MessageBox.Show("Desea Registrar el avance del cliente", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (pregunta == DialogResult.Yes)
                     {
                         bool realizado;

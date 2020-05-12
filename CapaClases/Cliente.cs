@@ -14,6 +14,8 @@ namespace CapaClases
         public string telefono { get; set; }
         public string telefonoEmergencia { get; set; }
         public DateTime nacimiento { get; set; }
+        //NO SE REGITRA EN BD
+        public DateTime Fecha { get; set; }
 
 
         public Cliente(int Id,string Nombre,string Apellido,string Dni,string Telefono,string TelEmer,DateTime Nacimiento)
@@ -26,6 +28,15 @@ namespace CapaClases
             this.telefonoEmergencia = TelEmer;
             this.nacimiento = Nacimiento;
         }
+
+        public Cliente(DateTime fecha, string Nombre, string Apellido, string Dni)
+        {
+            this.Fecha = fecha;
+            this.nombre = Nombre;
+            this.apellido = Apellido;
+            this.dni = Dni;
+        }
+
 
     }
 }

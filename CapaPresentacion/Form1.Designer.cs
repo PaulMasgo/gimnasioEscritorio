@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuVertical = new System.Windows.Forms.Panel();
+            this.btnReporteAsistencia = new System.Windows.Forms.Button();
             this.btnPlanes = new System.Windows.Forms.Button();
             this.btnMatricula = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnSlide = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnAvance = new System.Windows.Forms.Button();
             this.menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.barraTitulo.SuspendLayout();
@@ -53,6 +55,8 @@
             // menuVertical
             // 
             this.menuVertical.BackColor = System.Drawing.Color.Green;
+            this.menuVertical.Controls.Add(this.btnAvance);
+            this.menuVertical.Controls.Add(this.btnReporteAsistencia);
             this.menuVertical.Controls.Add(this.btnPlanes);
             this.menuVertical.Controls.Add(this.btnMatricula);
             this.menuVertical.Controls.Add(this.btnEmpleados);
@@ -67,6 +71,25 @@
             this.menuVertical.TabIndex = 0;
             this.menuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.menuVertical_Paint);
             // 
+            // btnReporteAsistencia
+            // 
+            this.btnReporteAsistencia.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnReporteAsistencia.FlatAppearance.BorderSize = 0;
+            this.btnReporteAsistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnReporteAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteAsistencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteAsistencia.ForeColor = System.Drawing.Color.White;
+            this.btnReporteAsistencia.Image = ((System.Drawing.Image)(resources.GetObject("btnReporteAsistencia.Image")));
+            this.btnReporteAsistencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteAsistencia.Location = new System.Drawing.Point(0, 567);
+            this.btnReporteAsistencia.Name = "btnReporteAsistencia";
+            this.btnReporteAsistencia.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnReporteAsistencia.Size = new System.Drawing.Size(250, 45);
+            this.btnReporteAsistencia.TabIndex = 2;
+            this.btnReporteAsistencia.Text = "Reporte Asistencia";
+            this.btnReporteAsistencia.UseVisualStyleBackColor = true;
+            this.btnReporteAsistencia.Click += new System.EventHandler(this.btnReporteAsistencia_Click);
+            // 
             // btnPlanes
             // 
             this.btnPlanes.FlatAppearance.BorderColor = System.Drawing.Color.Green;
@@ -77,7 +100,7 @@
             this.btnPlanes.ForeColor = System.Drawing.Color.White;
             this.btnPlanes.Image = ((System.Drawing.Image)(resources.GetObject("btnPlanes.Image")));
             this.btnPlanes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlanes.Location = new System.Drawing.Point(0, 408);
+            this.btnPlanes.Location = new System.Drawing.Point(12, 449);
             this.btnPlanes.Name = "btnPlanes";
             this.btnPlanes.Size = new System.Drawing.Size(250, 45);
             this.btnPlanes.TabIndex = 1;
@@ -113,7 +136,7 @@
             this.btnEmpleados.ForeColor = System.Drawing.Color.White;
             this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
             this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 470);
+            this.btnEmpleados.Location = new System.Drawing.Point(3, 500);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnEmpleados.Size = new System.Drawing.Size(250, 45);
@@ -132,7 +155,7 @@
             this.btnControl.ForeColor = System.Drawing.Color.White;
             this.btnControl.Image = ((System.Drawing.Image)(resources.GetObject("btnControl.Image")));
             this.btnControl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnControl.Location = new System.Drawing.Point(0, 346);
+            this.btnControl.Location = new System.Drawing.Point(3, 384);
             this.btnControl.Name = "btnControl";
             this.btnControl.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnControl.Size = new System.Drawing.Size(247, 45);
@@ -151,7 +174,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 284);
+            this.button1.Location = new System.Drawing.Point(0, 333);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(250, 45);
             this.button1.TabIndex = 0;
@@ -182,7 +205,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 58);
+            this.pictureBox1.Size = new System.Drawing.Size(219, 145);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -245,6 +268,24 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
+            // btnAvance
+            // 
+            this.btnAvance.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnAvance.FlatAppearance.BorderSize = 0;
+            this.btnAvance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnAvance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAvance.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAvance.ForeColor = System.Drawing.Color.White;
+            this.btnAvance.Image = ((System.Drawing.Image)(resources.GetObject("btnAvance.Image")));
+            this.btnAvance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAvance.Location = new System.Drawing.Point(0, 273);
+            this.btnAvance.Name = "btnAvance";
+            this.btnAvance.Size = new System.Drawing.Size(250, 45);
+            this.btnAvance.TabIndex = 3;
+            this.btnAvance.Text = "Avance";
+            this.btnAvance.UseVisualStyleBackColor = true;
+            this.btnAvance.Click += new System.EventHandler(this.btnAvance_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +322,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnPlanes;
+        private System.Windows.Forms.Button btnReporteAsistencia;
+        private System.Windows.Forms.Button btnAvance;
     }
 }
 
