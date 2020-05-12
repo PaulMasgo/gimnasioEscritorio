@@ -318,9 +318,9 @@ namespace CapaPresentacion
             MostrarResultado();
         }
 
-        private void dtpInicio_ValueChanged(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

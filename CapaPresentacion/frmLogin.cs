@@ -64,11 +64,19 @@ namespace CapaPresentacion
             }
             else
             {
-                mdlVariableAplicacion.EmpleadoActivo = this.empleado;
-                MessageBox.Show("Bienvenido " + this.empleado.nombres ,"Logeo Correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                frmPrincipal principal = new frmPrincipal();
-                principal.Show();
-                Close();
+                if (this.empleado.estado == "Inactivo  ")
+                {
+                    MessageBox.Show($"El empleado {this.empleado.nombres} no se encuentra activo", "Error", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    mdlVariableAplicacion.EmpleadoActivo = this.empleado;
+                    MessageBox.Show("Bienvenido " + this.empleado.nombres, "Logeo Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmPrincipal principal = new frmPrincipal();
+                    principal.Show();
+                    Close();
+                }
+               
             }
 
         }

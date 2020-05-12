@@ -33,7 +33,7 @@ namespace CapaPresentacion
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
             NEmpleado datos = new NEmpleado();
-            Empleado empleado = new Empleado(empleadoSeleccionado.id,txtNombres.Text, txtApellidos.Text, txtDNI.Text,txtDireccion.Text, txtCelular.Text, null, txtCorreo.Text,Convert.ToString(cmbTipo.SelectedItem));
+            Empleado empleado = new Empleado(empleadoSeleccionado.id,txtNombres.Text, txtApellidos.Text, txtDNI.Text,txtDireccion.Text, txtCelular.Text, null, txtCorreo.Text,Convert.ToString(cmbTipo.SelectedItem),Convert.ToString(cmbEstado.SelectedItem));
 
             DialogResult pregunta = MessageBox.Show("¿Desea actulizar los datos del empleado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -56,6 +56,7 @@ namespace CapaPresentacion
             txtDNI.Text = empleadoSeleccionado.dni;
             txtCorreo.Text = empleadoSeleccionado.correo;
             cmbTipo.SelectedItem = empleadoSeleccionado.tipo;
+            cmbEstado.SelectedItem = empleadoSeleccionado.estado;
         }
     }
 }
